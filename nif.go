@@ -68,7 +68,7 @@ func main() {
 
 				fmt.Fprintf(w, "\t%v \t%v\n", i.Name, v.IP.String())
 			default:
-
+				fmt.Printf("got a %v", v)
 			}
 
 		}
