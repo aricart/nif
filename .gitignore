@@ -1,0 +1,13 @@
+# build output
+bin/
+out/
+dist/
+build/
+web/public/
+./.idea
+
+# safe dir for junk
+ignore/
+
+# intellij/vscode
+**/*.iml
