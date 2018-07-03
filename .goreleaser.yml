@@ -1,0 +1,36 @@
+project_name: nif
+release:
+  github:
+    owner: aricart
+    name: nif
+  name_template: 'v{{.Tag}}'
+  draft: true
+builds:
+  - main: ./main.go
+    binary: nif
+    goos:
+      - linux
+      - darwin
+    goarch:
+      - amd64
+
+dist: build
+
+archive:
+  wrap_in_directory: true
+  name_template: '{{ .ProjectName }}-v{{ .Version }}-{{ .Os }}-{{ .Arch }}{{ if .Arm
+    }}v{{ .Arm }}{{ end }}'
+  format: zip
+
+checksum:
+  name_template: '{{ .ProjectName }}-v{{ .Version }}-checksums.txt'
+
+snapshot:
+  name_template: 'dev'
+
+nfpm:
+  formats:
+    - deb
+  bindir: /usr/local/bin
+  description: NIF (network interfaces)
+  vendor: nats-io
